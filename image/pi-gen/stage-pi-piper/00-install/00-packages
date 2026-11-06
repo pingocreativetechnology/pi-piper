@@ -1,0 +1,12 @@
+python3
+python3-pip
+python3-venv
+alsa-utils
+pipewire
+pipewire-jack
+wireplumber
+jackd2
+libasound2
+git
+openssh-server
+ca-certificates

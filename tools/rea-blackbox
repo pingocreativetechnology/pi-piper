@@ -1,0 +1,6 @@
+#!/bin/bash
+# The only supported way to launch REA for this project.
+# Policy lives in src/pi_piper/rea_policy.py. A blocked call never execs REA.
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m pi_piper.rea_policy "$@"

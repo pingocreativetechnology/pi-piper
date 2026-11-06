@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 280" role="img" aria-labelledby="title desc">
+  <title id="title">USB path between the Pi board and a Maschine controller</title>
+  <desc id="desc">The Pi board USB host talks HID and, on the full-size controller, bulk display transfers. Pi Piper does not use a vendor application.</desc>
+  <rect width="880" height="280" rx="16" fill="#f6f1e7"/>
+  <text x="28" y="36" fill="#241b10" font-family="Georgia, serif" font-size="20">Pi board and controller, over USB</text>
+  <text x="28" y="58" fill="#6a5a42" font-family="Georgia, sans-serif" font-size="13">No vendor application on the host. Maschine names the hardware only.</text>
+  <rect x="36" y="88" width="240" height="120" rx="12" fill="#1e4a3c"/>
+  <text x="156" y="128" text-anchor="middle" fill="#f6f1e7" font-family="Georgia, serif" font-size="20">Pi board</text>
+  <text x="156" y="152" text-anchor="middle" fill="#d6e38a" font-family="ui-sans-serif, sans-serif" font-size="13">USB host</text>
+  <text x="156" y="174" text-anchor="middle" fill="#f6f1e7" font-family="ui-sans-serif, sans-serif" font-size="12">Pi Piper userspace</text>
+  <rect x="604" y="88" width="240" height="120" rx="12" fill="#241b10"/>
+  <text x="724" y="124" text-anchor="middle" fill="#e0b15c" font-family="Georgia, serif" font-size="18">Maschine controller</text>
+  <text x="724" y="148" text-anchor="middle" fill="#f6f1e7" font-family="ui-sans-serif, sans-serif" font-size="12">Mikro MK3 or MK3</text>
+  <text x="724" y="170" text-anchor="middle" fill="#cbbfa8" font-family="ui-sans-serif, sans-serif" font-size="12">factory firmware only</text>
+  <line x1="276" y1="130" x2="604" y2="130" stroke="#a8782a" stroke-width="3"/>
+  <polygon points="604,130 592,124 592,136" fill="#a8782a"/>
+  <text x="440" y="120" text-anchor="middle" fill="#241b10" font-family="ui-sans-serif, sans-serif" font-size="13">HID in: pads, keys, encoder, strip</text>
+  <line x1="604" y1="168" x2="276" y2="168" stroke="#a8782a" stroke-width="3"/>
+  <polygon points="276,168 288,162 288,174" fill="#a8782a"/>
+  <text x="440" y="190" text-anchor="middle" fill="#241b10" font-family="ui-sans-serif, sans-serif" font-size="13">HID out: lamps and mono panel</text>
+  <text x="440" y="248" text-anchor="middle" fill="#6a5a42" font-family="ui-sans-serif, sans-serif" font-size="13">Full-size MK3 panels use a separate USB bulk write. Pads on that model are not parsed yet.</text>
+</svg>

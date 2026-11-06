@@ -1,0 +1,14 @@
+# Copy to pi-gen/config and edit before sudo ./build.sh.
+# Do not commit a real password.
+
+IMG_NAME='pi-piper'
+RELEASE='bookworm'
+TARGET_HOSTNAME='pi-piper'
+ENABLE_SSH=1
+FIRST_USER_NAME='performer'
+FIRST_USER_PASS='replace-me-at-build-time'
+DISABLE_FIRST_BOOT_USER_RENAME=1
+STAGE_LIST='stage0 stage1 stage2 stage-pi-piper'
+# Paste a public key. The stage writes it into the performer account.
+# export PI_PIPER_SSH_PUBKEY='ssh-ed25519 AAAA... you@host'
+DEPLOY_COMPRESSION='zip'

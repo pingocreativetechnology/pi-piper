@@ -1,0 +1,45 @@
+#!/bin/bash
+# First boot on the card: turn on the read-only overlay, then reboot.
+# The marker lives on the boot partition so the RAM overlay cannot forget it.
+
+set -euo pipefail
+
+if [[ "${EUID}" -ne 0 ]]; then
+  echo "pi-piper-firstboot needs root" >&2
+  exit 1
+fi
+
+marker=""
+for candidate in /boot/firmware /boot; do
+  if [[ -d "${candidate}" ]]; then
+    marker="${candidate}/pi-piper-firstboot-done"
+    break
+  fi
+done
+
+if [[ -z "${marker}" ]]; then
+  echo "No boot partition mounted; not enabling the overlay." >&2
+  exit 0
+fi
+
+if [[ -f "${marker}" ]]; then
+  exit 0
+fi
+
+if [[ ! -x /usr/bin/raspi-config ]]; then
+  echo "raspi-config is not installed; overlay left unchanged." >&2
+  echo "Install Raspberry Pi OS and rerun image/provision.sh." >&2
+  exit 0
+fi
+
+# An update request means we booted writable on purpose. Apply, then overlay.
+if [[ -f /boot/firmware/pi-piper-update-request || -f /boot/pi-piper-update-request ]]; then
+  /usr/local/sbin/pi-piper-update --apply --no-reboot || true
+  rm -f /boot/firmware/pi-piper-update-request /boot/pi-piper-update-request
+fi
+
+# 0 enables the overlay in Raspberry Pi OS's non-interactive raspi-config.
+raspi-config nonint do_overlayfs 0
+touch "${marker}"
+sync
+reboot

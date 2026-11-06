@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+}
+
+:root {
+  --ink: #f3ecdf;
+  --brass: #e0b15c;
+  --felt: #1b3f34;
+  --stage: #16130f;
+  --panel: #221c16;
+  --background: #221c16;
+  --foreground: #f3ecdf;
+  --primary: #e0b15c;
+  --primary-foreground: #241b10;
+  --secondary: #3a3126;
+  --secondary-foreground: #f3ecdf;
+  --accent: #4a3f31;
+  --accent-foreground: #f3ecdf;
+  --border: #6a5a42;
+  --input: #3a3126;
+  --ring: #e0b15c;
+  --destructive: #c44536;
+  color: var(--ink);
+  background: var(--stage);
+  font-family: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(224, 177, 92, 0.16), transparent 55%),
+    radial-gradient(900px 600px at 110% 10%, rgba(27, 63, 52, 0.45), transparent 50%),
+    var(--stage);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.screen-canvas {
+  image-rendering: pixelated;
+  background: #141a10;
+  border-radius: 6px;
+  width: 100%;
+  height: auto;
+}

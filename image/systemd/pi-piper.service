@@ -1,0 +1,26 @@
+[Unit]
+Description=Pi Piper performance launcher
+After=local-fs.target sound.target pi-piper-banner.service
+Wants=pi-piper-performance.service
+
+[Service]
+Type=simple
+User=performer
+Group=audio
+SupplementaryGroups=plugdev render
+WorkingDirectory=/opt/pi-piper
+Environment=PYTHONPATH=/opt/pi-piper/src
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m pi_piper run
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=tty
+StandardError=journal
+Restart=on-failure
+RestartSec=2
+Nice=-15
+LimitRTPRIO=95
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target

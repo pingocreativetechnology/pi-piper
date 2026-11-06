@@ -1,0 +1,13 @@
+[Unit]
+Description=Print the Pi Piper independence notice on the console
+DefaultDependencies=no
+After=systemd-user-sessions.service
+Before=pi-piper.service getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'cat /etc/pi-piper/BOOT_NOTICE > /dev/tty1 || true'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

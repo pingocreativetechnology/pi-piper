@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" role="img" aria-labelledby="title desc">
+  <title id="title">Signal flow from the controller to low-latency audio</title>
+  <desc id="desc">HID events enter the device layer and engine, then apps. Sound leaves as MIDI, OSC, or audio through PipeWire.</desc>
+  <rect width="880" height="340" rx="16" fill="#f6f1e7"/>
+  <text x="28" y="36" fill="#241b10" font-family="Georgia, serif" font-size="20">Signal flow to low-latency audio</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="13" fill="#f6f1e7">
+    <rect x="28" y="64" width="150" height="56" rx="10" fill="#241b10"/>
+    <text x="103" y="97" text-anchor="middle">Controller</text>
+    <rect x="214" y="64" width="150" height="56" rx="10" fill="#1e4a3c"/>
+    <text x="289" y="90" text-anchor="middle">Device layer</text>
+    <text x="289" y="108" text-anchor="middle" font-size="11">HID or bench</text>
+    <rect x="400" y="64" width="130" height="56" rx="10" fill="#8a6428"/>
+    <text x="465" y="97" text-anchor="middle">Engine</text>
+    <rect x="566" y="64" width="130" height="56" rx="10" fill="#3d6fbf"/>
+    <text x="631" y="97" text-anchor="middle">App</text>
+    <rect x="732" y="64" width="120" height="56" rx="10" fill="#241b10"/>
+    <text x="792" y="90" text-anchor="middle">Lamps</text>
+    <text x="792" y="108" text-anchor="middle" font-size="11">and panel</text>
+  </g>
+  <g stroke="#a8782a" stroke-width="2.5" fill="#a8782a">
+    <line x1="178" y1="92" x2="214" y2="92"/>
+    <polygon points="214,92 204,87 204,97"/>
+    <line x1="364" y1="92" x2="400" y2="92"/>
+    <polygon points="400,92 390,87 390,97"/>
+    <line x1="530" y1="92" x2="566" y2="92"/>
+    <polygon points="566,92 556,87 556,97"/>
+    <line x1="696" y1="92" x2="732" y2="92"/>
+    <polygon points="732,92 722,87 722,97"/>
+  </g>
+  <text x="28" y="160" fill="#6a5a42" font-family="ui-sans-serif, sans-serif" font-size="13">The app never holds a USB handle. Sound and sync leave on three paths.</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="13">
+    <rect x="28" y="184" width="250" height="120" rx="12" fill="#ffffff" stroke="#d7c7a4"/>
+    <text x="48" y="214" fill="#241b10" font-family="Georgia, serif" font-size="16">MIDI</text>
+    <text x="48" y="238" fill="#3a3126">Virtual port Pi Piper</text>
+    <text x="48" y="258" fill="#3a3126">USB MIDI interface</text>
+    <text x="48" y="278" fill="#3a3126">Hardware synths, clock</text>
+    <rect x="308" y="184" width="250" height="120" rx="12" fill="#ffffff" stroke="#d7c7a4"/>
+    <text x="328" y="214" fill="#241b10" font-family="Georgia, serif" font-size="16">OSC</text>
+    <text x="328" y="238" fill="#3a3126">UDP 9000, prefix /pipiper</text>
+    <text x="328" y="258" fill="#3a3126">Text UDP 9002</text>
+    <text x="328" y="278" fill="#3a3126">Pure Data, SuperCollider</text>
+    <rect x="588" y="184" width="260" height="120" rx="12" fill="#1e4a3c"/>
+    <text x="608" y="214" fill="#e0b15c" font-family="Georgia, serif" font-size="16">Low-latency audio</text>
+    <text x="608" y="238" fill="#f6f1e7">PipeWire, 48 kHz</text>
+    <text x="608" y="258" fill="#f6f1e7">128 frames, JACK clients</text>
+    <text x="608" y="278" fill="#f6f1e7">Class-compliant USB audio</text>
+  </g>
+</svg>

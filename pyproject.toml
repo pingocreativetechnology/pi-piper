@@ -1,0 +1,29 @@
+[project]
+name = "pi-piper"
+version = "0.1.0"
+description = "Independent stage framework for live performance with compatible pad controllers"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{name = "Pi Piper contributors"}]
+keywords = ["music", "performance", "midi", "osc"]
+dependencies = []
+
+[project.optional-dependencies]
+midi = ["python-rtmidi"]
+usb = ["pyusb"]
+dev = ["pytest", "websockets"]
+
+[project.scripts]
+pi-piper = "pi_piper.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

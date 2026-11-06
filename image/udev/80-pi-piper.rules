@@ -1,0 +1,7 @@
+# Userspace access for the controllers Pi Piper speaks to.
+# Group audio, not world-writable. The logged-in seat also gets uaccess.
+
+SUBSYSTEM=="usb", ATTR{idVendor}=="17cc", ATTR{idProduct}=="1700", MODE="0660", GROUP="audio", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{idVendor}=="17cc", ATTR{idProduct}=="1600", MODE="0660", GROUP="audio", TAG+="uaccess"
+KERNEL=="hidraw*", ATTRS{idVendor}=="17cc", ATTRS{idProduct}=="1700", MODE="0660", GROUP="audio", TAG+="uaccess"
+KERNEL=="hidraw*", ATTRS{idVendor}=="17cc", ATTRS{idProduct}=="1600", MODE="0660", GROUP="audio", TAG+="uaccess"

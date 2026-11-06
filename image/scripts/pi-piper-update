@@ -1,0 +1,74 @@
+#!/bin/bash
+# Headless update.
+# With no flags, schedule a writable maintenance boot (overlay off) and reboot.
+# --apply runs only while the root is writable: git pull, reinstall units, overlay on.
+
+set -euo pipefail
+
+if [[ "${EUID}" -ne 0 ]]; then
+  echo "pi-piper-update needs root" >&2
+  exit 1
+fi
+
+APPLY=0
+REBOOT=1
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --apply) APPLY=1 ;;
+    --no-reboot) REBOOT=0 ;;
+    *) echo "unknown argument $1" >&2; exit 2 ;;
+  esac
+  shift
+done
+
+boot_flag() {
+  if [[ -d /boot/firmware ]]; then
+    echo /boot/firmware/pi-piper-update-request
+  else
+    echo /boot/pi-piper-update-request
+  fi
+}
+
+root_is_overlay() {
+  findmnt -n -o FSTYPE / 2>/dev/null | grep -q overlay
+}
+
+if [[ "${APPLY}" -eq 0 ]]; then
+  flag="$(boot_flag)"
+  touch "${flag}"
+  if root_is_overlay && [[ -x /usr/bin/raspi-config ]]; then
+    # 1 disables the overlay so the next boot can write the card.
+    raspi-config nonint do_overlayfs 1
+  fi
+  echo "Update armed. The next boot is writable and will run --apply."
+  if [[ "${REBOOT}" -eq 1 ]]; then
+    reboot
+  fi
+  exit 0
+fi
+
+if root_is_overlay; then
+  echo "Root is still an overlay. Not applying. Disable it and reboot first." >&2
+  exit 1
+fi
+
+if [[ -d /opt/pi-piper/.git ]]; then
+  sudo -u "$(stat -c %U /opt/pi-piper)" git -C /opt/pi-piper pull --ff-only || {
+    echo "git pull failed. Fix the remote, then rerun pi-piper-update --apply." >&2
+    exit 1
+  }
+else
+  echo "No git checkout in /opt/pi-piper. Copy a new tree in place, then rerun." >&2
+  exit 1
+fi
+
+PI_PIPER_ENABLE_OVERLAY=0 bash /opt/pi-piper/image/provision.sh
+
+if [[ -x /usr/bin/raspi-config ]]; then
+  raspi-config nonint do_overlayfs 0
+fi
+systemctl restart pi-piper.service || true
+echo "Update applied. Overlay requested again."
+if [[ "${REBOOT}" -eq 1 ]]; then
+  reboot
+fi

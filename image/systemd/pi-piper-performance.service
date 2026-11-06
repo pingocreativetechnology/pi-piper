@@ -1,0 +1,11 @@
+[Unit]
+Description=Pi Piper performance CPU governor
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'for g in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do [ -w "$g" ] && echo performance > "$g" || true; done'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

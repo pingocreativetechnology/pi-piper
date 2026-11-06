@@ -1,0 +1,14 @@
+[Unit]
+Description=Pi Piper first boot (overlay root, then reboot)
+ConditionPathExists=!/boot/firmware/pi-piper-firstboot-done
+ConditionPathExists=!/boot/pi-piper-firstboot-done
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/pi-piper-firstboot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

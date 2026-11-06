@@ -1,0 +1,31 @@
+Pi Piper
+Copyright (c) 2026 Pi Piper contributors
+
+Pi Piper (earlier working names: Open Pi and Spindle) is an independent
+open-source project. It is not affiliated with, endorsed by, or sponsored
+by Native Instruments / inMusic Brands, Inc. or their affiliates, and it
+is not made by them.
+
+Maschine and Native Instruments are trademarks of their respective owners.
+They are used only to identify compatible hardware.
+
+Raspberry Pi is a trademark of Raspberry Pi Ltd.
+
+This tree does not contain Native Instruments firmware, software, samples,
+presets, fonts, screen graphics, manuals, logos, or product photographs.
+
+Protocol facts were read from MIT-licensed open drivers and restated in
+docs/protocol.md. Those projects are not vendored here:
+
+- r00tman/maschine-mikro-mk3-driver, MIT, used as the reference for the
+  Mikro MK3 report layout.
+- openAVproductions/ni-display, MIT OR Apache-2.0, used as the reference for
+  the full-size controller's colour-panel framing.
+
+GPL-3.0 programs are not linked into the Pi Piper Python package. A system
+image built with image/provision.sh aggregates independently licensed
+operating-system packages. Their source is offered in image/SOURCE-OFFER.md.
+
+The final licence of this project is Kenneth's decision. See docs/licence.md.
+
+Made by PCT: https://pingocreativetechnology.com

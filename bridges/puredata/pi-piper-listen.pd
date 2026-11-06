@@ -1,0 +1,6 @@
+#N canvas 560 80 640 420 10;
+#X text 32 18 Pi Piper text feed on UDP 9002.;
+#X text 32 40 Not affiliated with Native Instruments.;
+#X obj 32 90 netreceive -u 9002;
+#X obj 32 140 print pipiper;
+#X connect 2 0 3 0;
