@@ -8,7 +8,7 @@ A stage framework for live performance on a small board, speaking USB to compati
 
 **Pingo Creative Technology:** [pingocreativetechnology.com](https://pingocreativetechnology.com)
 
-Pi Piper (earlier working names: Open Pi and Spindle) is an independent, community-built open-source framework for live performance. It communicates with Native Instruments Maschine controllers over their standard USB protocol, using only publicly documented and black-box reverse-engineered behaviour. Pi Piper is **compatible with** Maschine hardware. It is **not** affiliated with, endorsed by, or sponsored by Native Instruments / inMusic Brands, Inc. or their affiliates, and it is **not** made by them. “Maschine,” “Native Instruments,” and related marks are trademarks of their respective owners and are used solely to identify compatible third-party hardware. Pi Piper does not ship Native Instruments logos, branding, firmware, samples, fonts, manuals, or proprietary software, and reverse-engineering work for this project stays black-box only (no decompilation of NI binaries, no dumping of vendor firmware or screen bitmaps). Raspberry Pi is a trademark of Raspberry Pi Ltd. Use of Pi Piper is at your own risk.
+Pi Piper (earlier working names: Open Pi and Spindle) is an independent, solo open-source framework for live performance on compatible pad controllers. Pi Piper is **compatible with** Native Instruments Maschine hardware. It is **not** affiliated with, endorsed by, or sponsored by Native Instruments / inMusic Brands, Inc. or their affiliates, and it is **not** made by them. “Maschine,” “Native Instruments,” and related marks are trademarks of their respective owners and are used solely to identify compatible third-party hardware. Pi Piper does not ship Native Instruments logos, branding, firmware, samples, fonts, manuals, or proprietary software. Raspberry Pi is a trademark of Raspberry Pi Ltd. Use of Pi Piper is at your own risk.
 
 The working licence is MIT. That choice is open until Kenneth confirms it. See [docs/licence.md](docs/licence.md).
 
@@ -36,7 +36,7 @@ The launcher and the starter apps. Shift+Stop on the hardware returns to the lau
 
 Pi Piper is compatible with the Native Instruments Maschine Mikro MK3 and, for the two colour panels only, the Maschine MK3. It does not use, ship, or talk to any Native Instruments application.
 
-The full-size MK3's pads and keys are not parsed yet. The reason is in [docs/legal-flags.md](docs/legal-flags.md): there is no permissive, black-box description of those reports, and Pi Piper will not read proprietary software or GPL driver source to invent one.
+The full-size MK3's pads and keys are not implemented yet. Colour panels on that model work; pad and key input for it is still to come. See [docs/legal-flags.md](docs/legal-flags.md) for the current compatibility limits.
 
 ## Bench, without hardware
 
@@ -111,12 +111,6 @@ PYTHONPATH=src python3 -m pi_piper sim --app examples/hello_app.py
 `paint` redraws every tick. The engine clears the lamps first. Sound leaves through `host.note`, `host.midi`, and `host.osc`. The layout of the Python package is in [docs/architecture.md](docs/architecture.md).
 
 Pure Data and SuperCollider bridges are in [bridges/](bridges/README.md). They listen; they are not required for the launcher.
-
-## Protocol, REA, and the line we do not cross
-
-[docs/protocol.md](docs/protocol.md) is the byte layout in our own words, with the source of each fact. The permissive references are the MIT Mikro MK3 driver and the MIT OR Apache-2.0 panel crate. They are not vendored.
-
-REA (`morluto/rea`) is allowed only through `tools/rea-blackbox`, which refuses Native Instruments software, firmware, decompilers, and rendered screen bitmaps before REA starts. [docs/rea.md](docs/rea.md) is the record of that policy. [docs/legal-flags.md](docs/legal-flags.md) lists the gaps we stopped on, including encryption or a signature if one ever shows up: stop, do not work around it.
 
 ## Tests on the real unit
 

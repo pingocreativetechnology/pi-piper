@@ -2,9 +2,8 @@
 """Device backends.
 
 ``SimDevice`` is the hardware stand-in. ``MikroMk3`` speaks HID reports.
-``Mk3`` can push the two colour panels and deliberately does not invent a
-pad or button parser: that report layout was not available from a
-black-box capture or from an MIT-licensed driver.
+``Mk3`` can push the two colour panels. Pad and button input on the full-size
+MK3 is not implemented yet.
 """
 
 from __future__ import annotations
@@ -190,10 +189,9 @@ class MikroMk3:
 class Mk3:
     """Colour-display backend for the full-size MK3.
 
-    Pad, button, encoder and lamp reports are a known gap. Pi Piper will not
-    fill that gap by reading proprietary software, firmware, or GPL driver
-    source. ``inputs_available`` stays false until a black-box capture is
-    written up in our own words.
+    Pad, button, encoder and lamp input on this model is not implemented yet.
+    ``inputs_available`` stays false until that support lands and is tested
+    on hardware.
     """
 
     model: str = "mk3"

@@ -2,8 +2,7 @@
 """Byte layouts for the controllers Pi Piper speaks.
 
 The functions here are pure: they turn bytes into events and a surface into
-bytes. Sources for each constant are in docs/protocol.md. Nothing in this
-module talks to USB.
+bytes. Nothing in this module talks to USB.
 """
 
 from __future__ import annotations

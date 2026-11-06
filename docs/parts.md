@@ -22,7 +22,7 @@ Rough prices in the November 2026 research note are already stale.
   driver is written for. It is bus-powered. One small mono panel.
 - Or a Native Instruments Maschine MK3 if you need the two colour panels and
   the DIN sockets. Pi Piper drives the panels and does not yet parse that
-  model's pads or keys (see `docs/legal-flags.md`). It also wants its own
+  model's pads or keys yet (see `docs/legal-flags.md`). It also wants its own
   power supply for full lamp brightness; on USB power the lamps stay dim.
   Pi Piper does not change that.
 

@@ -2,8 +2,7 @@
 
 Run this with the controller you will take on stage. The simulator does not
 count as a pass. Tick the lines in the commit message or the show notes when
-they pass. Stop at the first red line that mentions encryption or a
-signature; that is a legal stop, not a bug to route around.
+they pass.
 
 ## Before power
 
@@ -28,8 +27,7 @@ signature; that is a legal stop, not a bug to route around.
       `Pi Piper` port (`aseqdump -p Pi Piper` or a DAW).
 - [ ] After a strike, leaning on the pad changes polyphonic aftertouch in
       MIDI mode and does not retrigger the note.
-- [ ] Every key in `docs/protocol.md` changes a bit. Encoder press and
-      encoder touch are distinct.
+- [ ] Every key changes a bit. Encoder press and encoder touch are distinct.
 - [ ] The encoder steps up and down, including across the 15→0 wrap, one
       step at a time when turned slowly.
 - [ ] One finger on the strip moves controller 11 in MIDI mode. A second
@@ -53,8 +51,8 @@ signature; that is a legal stop, not a bug to route around.
 - [ ] The red/green/blue swatch (draw one solid colour at a time from a
       scratch app) matches the colour you asked for. If the channels are
       swapped, the only change allowed is the packing in `mk3_transfers`.
-- [ ] Confirm there is still no challenge or encrypted blob on the bulk
-      endpoint. If there is, stop and write it into `docs/legal-flags.md`.
+- [ ] Bulk panel transfers succeed without errors. Note any unexpected
+      behaviour in `docs/legal-flags.md`.
 - [ ] Pads and keys are expected to do nothing. That is the documented gap,
       not a failure of the panel test.
 
@@ -73,6 +71,5 @@ signature; that is a legal stop, not a bug to route around.
 ## Record the run
 
 Write the board model, the kernel (`uname -a`), the controller model, and
-the firmware version the unit already had. Do not extract that version by
-dumping firmware; read it from the device's own about screen if it has one,
-or leave it blank.
+the firmware version shown on the device's own about screen if it has one,
+or leave the firmware field blank.

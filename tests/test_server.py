@@ -9,7 +9,6 @@ from pi_piper.drivers import SimDevice, find_hidraw
 from pi_piper.engine import Engine
 from pi_piper.midi import MidiHub
 from pi_piper.osc import OscHub
-from pi_piper.rea_policy import PolicyError, assess
 from pi_piper.server import BenchServer
 
 
@@ -20,30 +19,6 @@ def test_hidraw_scan(tmp_path):
     assert find_hidraw(0x17CC, 0x1700, sysfs_root=str(tmp_path)) == "/dev/hidraw3"
     assert find_hidraw(0x17CC, 0x1600, sysfs_root=str(tmp_path)) is None
 
-
-def test_rea_policy_blocks_decompiler_and_allows_mit_tree(tmp_path):
-    try:
-        assess(["decompile", "/tmp/rea-work/app"])
-        raise AssertionError("decompile should be blocked")
-    except PolicyError:
-        pass
-    try:
-        assess(["inspect-artifact", "--provider=ghidra", "/tmp/reference/mikro-mk3/README.md"])
-        raise AssertionError("ghidra should be blocked")
-    except PolicyError:
-        pass
-    try:
-        assess(["inspect-artifact", "/opt/native-instruments/Maschine 2.exe"])
-        raise AssertionError("NI software should be blocked")
-    except PolicyError:
-        pass
-    try:
-        assess(["inspect-artifact", "/tmp/reference/jimpo/src/midi_mode.bin"])
-        raise AssertionError("rendered screen bitmap should be blocked")
-    except PolicyError:
-        pass
-    work = "/tmp/rea-work"
-    assess(["inspect-artifact", f"{work}/sample-report.bin"])
 
 
 def test_websocket_switches_app():

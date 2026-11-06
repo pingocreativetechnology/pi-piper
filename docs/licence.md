@@ -12,17 +12,15 @@ written for this project. They do not copy or link:
 - MusicPI (`music-pi/music-pi`), GPL-3.0
 - Zynthian, GPL-3.0
 - the Linux `snd-usb-caiaq` driver, GPL-2.0
-- the GPL-3.0 Mikro MK3 forks, including the one that carries a protocol
-  essay, a rendered "MIDI mode" bitmap, and a controller-editor template
+- GPL-3.0 Mikro MK3 forks that ship vendor screen content or controller-editor
+  templates
 
 Those GPL programs were not vendored, not built into the wheel, and not
-paraphrased into `src/`. REA is configured so it will not open the GPL fork.
-See `NOTICE` and `docs/rea.md`.
+paraphrased into `src/`. See `NOTICE`.
 
-MIT-licensed code was used as a reference for facts (report ids, offsets,
-panel framing), which are recorded in `docs/protocol.md`. The reference
-projects are not shipped. Their copyright notices would be required only if
-we distributed their code. We do not.
+MIT-licensed open projects were used as a reference for controller report
+layout facts. Those projects are not shipped. Their copyright notices would
+be required only if we distributed their code. We do not.
 
 ## When the choice would have to change
 

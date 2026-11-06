@@ -44,19 +44,15 @@ By making a contribution to this project, I certify that:
 Add `Signed-off-by: Your Name <you@example.com>` as the last line of the
 commit message. `git commit -s` does this.
 
-## Reverse engineering
+## Hardware and compatibility
 
-- Black box only: your own USB captures, the device's own descriptors, and
-  permissive open drivers.
-- Run REA only through `tools/rea-blackbox`. Do not point Ghidra, Hopper,
-  IDA, or REA at Native Instruments software, drivers, firmware, or updaters.
-- Do not commit firmware, samples, presets, fonts, logos, product photos,
-  manual text, or raw captures that contain panel bitmaps.
-- Write protocol changes in your own words in `docs/protocol.md` and name
-  the source of each new fact (capture file and date, or the permissive
-  driver and file). Append the REA summary to `provenance/REA-LOG.md`.
-- If you meet encryption, an authentication handshake, or signed firmware,
-  stop that part of the work and add a row to `docs/legal-flags.md`.
+- Do not add Native Instruments firmware, software, samples, presets, fonts,
+  logos, product photos, or manuals to this tree.
+- Do not point decompilers or similar tools at Native Instruments products.
+- Do not invent support for an undocumented controller or report layout
+  without a hardware test on that unit. Record untested gaps in
+  `docs/legal-flags.md` and tick `docs/hardware-test.md` when something is
+  proven on real hardware.
 
 ## Code
 

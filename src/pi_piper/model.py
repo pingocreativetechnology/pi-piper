@@ -3,7 +3,7 @@
 
 Button numbers match the bit positions used by the Mikro MK3 status report.
 Colour numbers match the pad palette indices used by that controller's LED
-report. Both are recorded in docs/protocol.md with their sources.
+report.
 """
 
 from __future__ import annotations
