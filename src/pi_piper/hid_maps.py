@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: MIT
-"""Byte layouts for the controllers Pi Piper speaks.
+"""Controller report packing and unpacking for Pi Piper.
 
-The functions here are pure: they turn bytes into events and a surface into
-bytes. Nothing in this module talks to USB.
+Pure helpers: bytes to events, surface to bytes. No USB I/O here.
 """
 
 from __future__ import annotations
@@ -40,9 +39,9 @@ SCREEN_W = 128
 SCREEN_H = 32
 SCREEN_REPORT_ID = 0xE0
 
-# MK3 colour panels. Size and the bulk framing bytes are taken from the
-# MIT-or-Apache display crate cited in the protocol notes. Channel order of
-# the pixel words is NOT confirmed on hardware; see the legal flags.
+# MK3 colour panels. Size and bulk framing follow the MIT-or-Apache
+# ni-display reference. Channel order of the pixel words is not confirmed
+# on hardware yet; see docs/legal-flags.md.
 MK3_WIDTH = 480
 MK3_HEIGHT = 272
 MK3_DISPLAY_INTERFACE = 5

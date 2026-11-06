@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 from .model import PadColor, color_id
-from .protocol import PAD_COUNT, STRIP_LED_COUNT
+from .hid_maps import PAD_COUNT, STRIP_LED_COUNT
 from .screen import MonoScreen
 
 

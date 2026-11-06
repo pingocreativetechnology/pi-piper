@@ -13,7 +13,7 @@ import select
 from dataclasses import dataclass, field
 
 from .model import InputEvent
-from .protocol import (
+from .hid_maps import (
     MK3_BULK_ENDPOINT_OUT,
     MK3_DISPLAY_INTERFACE,
     MK3_HEIGHT,

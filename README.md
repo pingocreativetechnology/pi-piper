@@ -8,7 +8,7 @@ A stage framework for live performance on a small board, speaking USB to compati
 
 **Pingo Creative Technology:** [pingocreativetechnology.com](https://pingocreativetechnology.com)
 
-Pi Piper (earlier working names: Open Pi and Spindle) is an independent, solo open-source framework for live performance on compatible pad controllers. Pi Piper is **compatible with** Native Instruments Maschine hardware. It is **not** affiliated with, endorsed by, or sponsored by Native Instruments / inMusic Brands, Inc. or their affiliates, and it is **not** made by them. “Maschine,” “Native Instruments,” and related marks are trademarks of their respective owners and are used solely to identify compatible third-party hardware. Pi Piper does not ship Native Instruments logos, branding, firmware, samples, fonts, manuals, or proprietary software. Raspberry Pi is a trademark of Raspberry Pi Ltd. Use of Pi Piper is at your own risk.
+Pi Piper is an independent, solo open-source framework for live performance on compatible pad controllers. Pi Piper is **compatible with** Native Instruments Maschine hardware. It is **not** affiliated with, endorsed by, or sponsored by Native Instruments / inMusic Brands, Inc. or their affiliates, and it is **not** made by them. “Maschine,” “Native Instruments,” and related marks are trademarks of their respective owners and are used solely to identify compatible third-party hardware. Pi Piper does not ship Native Instruments logos, branding, firmware, samples, fonts, manuals, or proprietary software. Raspberry Pi is a trademark of Raspberry Pi Ltd. Use of Pi Piper is at your own risk.
 
 The working licence is MIT. That choice is open until Kenneth confirms it. See [docs/licence.md](docs/licence.md).
 

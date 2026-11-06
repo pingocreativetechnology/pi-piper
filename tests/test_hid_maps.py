@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 from pi_piper.model import Button, PadPhase
-from pi_piper.protocol import (
+from pi_piper.hid_maps import (
     MK3_HEIGHT,
     MK3_WIDTH,
     ControlState,

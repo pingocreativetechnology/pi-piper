@@ -8,7 +8,7 @@ buffer onto the colour panels so the same apps run on either controller.
 from __future__ import annotations
 
 from .font import FONT, GLYPH_H, GLYPH_W
-from .protocol import SCREEN_H, SCREEN_W, blank_screen, screen_pixel, screen_reports, set_screen_pixel
+from .hid_maps import SCREEN_H, SCREEN_W, blank_screen, screen_pixel, screen_reports, set_screen_pixel
 
 
 class MonoScreen:

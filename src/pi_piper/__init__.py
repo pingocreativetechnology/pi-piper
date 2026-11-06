@@ -4,7 +4,7 @@
 __version__ = "0.1.0"
 
 DISCLAIMER = (
-    "Pi Piper (earlier working names: Open Pi and Spindle) is an independent, "
+    "Pi Piper is an independent, "
     "solo open-source framework for live performance on compatible pad "
     "controllers. Pi Piper is compatible with Native Instruments Maschine "
     "hardware. It is not affiliated with, endorsed by, or sponsored by Native "
